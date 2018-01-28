@@ -11,4 +11,9 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+  <button class="button button-positive" (click)="read()">Read</button>
+  <br>
+  <p *ngFor="let item of printers" >
+	  <button (click)="connect(item)"> {{item.name}} </button>
+  </p>
 </ion-content>
