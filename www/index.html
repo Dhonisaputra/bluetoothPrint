@@ -27,6 +27,7 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
@@ -34,11 +35,26 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
+    <ion-pane ng-controller="printer">
       <ion-header-bar class="bar-stable">
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
       <ion-content>
+        <button class="btn btn-positive" ng-click="search()">Reload</button>
+        <br>
+        <br>
+        <p ng-repeat="item in paired">
+          <button class="button button-positive" ng-click="testPrint(item)"> Connect to {{item.name}} </button>
+        </p>
+        <p ng-repeat="item in printers">
+          <button class="button button-positive" ng-click="testPrint(item)"> Connect to {{item.name}} </button>
+        </p>
+        <br>
+        <br>
+        <p ng-repeat="item in paired">
+          <button class="button button-assertive" ng-click="disconnect(item)"> Connect to {{item.name}} </button>
+        </p>
+      
       </ion-content>
     </ion-pane>
   </body>
